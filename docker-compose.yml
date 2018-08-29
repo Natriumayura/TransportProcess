@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  transportprocess:
+    image: transportprocess
+    build:
+      context: ./TransportProcess
+      dockerfile: Dockerfile
+
+  transportmodel:
+    image: transportmodel
+    build:
+      context: ./TransportModel
+      dockerfile: Dockerfile

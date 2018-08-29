@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportProcess", "TransportProcess\TransportProcess.csproj", "{49F193FA-B0C9-4E83-A093-105D38D11751}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D02A89B5-456C-4497-9206-C11F15899887}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportDataAccess", "TransportModels\TransportDataAccess.csproj", "{41B5BBAB-2FAF-47D7-9C7B-AD0833751AE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRApi", "TRApi\TRApi.csproj", "{C31D7424-B5CD-41DB-8893-49C9C57E9B39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49F193FA-B0C9-4E83-A093-105D38D11751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49F193FA-B0C9-4E83-A093-105D38D11751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49F193FA-B0C9-4E83-A093-105D38D11751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49F193FA-B0C9-4E83-A093-105D38D11751}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D02A89B5-456C-4497-9206-C11F15899887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D02A89B5-456C-4497-9206-C11F15899887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D02A89B5-456C-4497-9206-C11F15899887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D02A89B5-456C-4497-9206-C11F15899887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41B5BBAB-2FAF-47D7-9C7B-AD0833751AE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B5BBAB-2FAF-47D7-9C7B-AD0833751AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B5BBAB-2FAF-47D7-9C7B-AD0833751AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B5BBAB-2FAF-47D7-9C7B-AD0833751AE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C31D7424-B5CD-41DB-8893-49C9C57E9B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C31D7424-B5CD-41DB-8893-49C9C57E9B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C31D7424-B5CD-41DB-8893-49C9C57E9B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C31D7424-B5CD-41DB-8893-49C9C57E9B39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEA265FA-B72D-4578-934B-FCDC6B47229D}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  transportprocess:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+  transportmodel:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+networks:
+  default:
+    external:
+      name: nat
+
