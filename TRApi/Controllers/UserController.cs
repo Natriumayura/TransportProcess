@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TransportDataAccess;
 using TransportDataAccess.Model;
+using Microsoft.AspNetCore.Cors;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TRApi.Controllers
 {
-    
+    [EnableCors("MyPolicy")]
     public class UserController : ControllerBase
     {
 
@@ -28,29 +29,11 @@ namespace TRApi.Controllers
             return _context.User.Where(x => x.StatusId == 1).ToList();
         }
 
-        //// GET api/values/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        [HttpGet("api/User/GetUserByUserName/{username}")]
+        public User GetUserByUserName(string username)
+        {
+            return _context.User.FirstOrDefault(x => x.Username.ToLower().Equals(username.ToLower()));
+        }
 
-        //// POST api/values
-        //[HttpPost]
-        //public void Post([FromBody]string value)
-        //{
-        //}
-
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

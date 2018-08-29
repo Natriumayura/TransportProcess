@@ -6,11 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using TransportDataAccess;
 using Microsoft.EntityFrameworkCore;
 using TransportDataAccess.Model;
+using Microsoft.AspNetCore.Cors;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TRApi.Controllers
-{ 
+{
+
+    [EnableCors("MyPolicy")]
+    [ApiController]
     public class RequestAllocationController : Controller
     {
 
@@ -22,35 +26,26 @@ namespace TRApi.Controllers
             _context = transportContext;
         }
         // GET: api/values
-        [HttpGet("api/RequestAllocation/GetAllRequestAllocations")]
-        public List<RequestAllocation> GetAllRequestAllocations()
+        //[HttpGet("api/RequestAllocation/GetAllRequestAllocations")]
+        //public List<RequestAllocation> GetAllRequestAllocations()
+        //{
+        //    return _context.RequestAllocation.Include(req=>req.Request).Include(v=>v.Vehicle).Where(x => x.StatusId == 1).ToList();
+        //}
+
+        [HttpPost("api/RequestAllocation/CreateAllocation")]
+        public void CreateAllocation(RequestAllocation requestAllocStr)
         {
-            return _context.RequestAllocation.Include(req=>req.Request).Include(v=>v.Vehicle).Where(x => x.StatusId == 1).ToList();
+
+            _context.RequestAllocation.Add(requestAllocStr);
+            _context.SaveChanges();
         }
 
-        //// GET api/values/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        [HttpGet("api/RequestAllocation/GetMyAllocatedRequest/{userId}")]
+        public List<AllocatedReqs> GetMyAllocatedRequest(int userId)
+        {
+            return _context.AllocatedReqs.Where(x=>x.UserId == userId).ToList();
+        }
 
-        //// POST api/values
-        //[HttpPost]
-        //public void Post([FromBody]string value)
-        //{
-        //}
-
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+     
     }
 }

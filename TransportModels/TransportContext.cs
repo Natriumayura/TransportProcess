@@ -9,7 +9,6 @@ namespace TransportDataAccess
             : base(options)
         {
         }
-
         public DbSet<TRequest> TRequest { get; set; }
         public DbSet<RequestApprovalStatus> RequestApprovalStatus { get; set; }
         public DbSet<Purpose> Purpose { get; set; }
@@ -19,5 +18,6 @@ namespace TransportDataAccess
         public DbSet<User> User { get; set; }
         public DbSet<PermissionLevel> PermissionLevel { get; set; }
         public DbSet<UserPermissionLevelAllocation> UserPermissionLevelAllocation { get; set; }
+        public DbSet<AllocatedReqs> AllocatedReqs { get; set; }
     }
 }

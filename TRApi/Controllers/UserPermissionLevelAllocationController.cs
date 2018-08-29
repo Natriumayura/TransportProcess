@@ -30,17 +30,42 @@ namespace TRApi.Controllers
             return _context.UserPermissionLevelAllocation.Include(x => x.PermissionLevel).Include(y => y.User).Where(z => z.StatusId == 1).ToList();
         }
 
+
+        [HttpGet("api/UserPermissionLevelAllocation/GetPermissionAllocationsByUserId/{userId}")]
+        public List<UserPermissionLevelAllocation> GetPermissionAllocationsByUserName(int userId)
+        {
+            
+                var permissionLevels = _context.UserPermissionLevelAllocation.Include(x => x.PermissionLevel).Where(x => x.StatusId == 1 && x.UserId == userId).ToList();
+                if (permissionLevels.Count > 0)
+                {
+                    return permissionLevels;
+                }
+                else
+                {
+                    return _context.UserPermissionLevelAllocation.Include(x => x.PermissionLevel).Where(z => z.StatusId == 1 && z.UserId == 1).ToList();
+                }
+            
+        }
+
         [HttpGet("api/UserPermissionLevelAllocation/GetPermissionAllocationsByUserName/{username}")]
         public List<UserPermissionLevelAllocation> GetPermissionAllocationsByUserName(string username)
         {
-            var permissionLevels = _context.UserPermissionLevelAllocation.Include(x => x.PermissionLevel).Include(y => y.User).Where(z => z.StatusId == 1 && z.User.Username.ToLower().Equals(username)).ToList();
-            if (permissionLevels.Count > 0)
+            var  user  = _context.User.FirstOrDefault(x => x.Username.ToLower().Equals(username.ToLower()));
+            if (user == null)
             {
-                return permissionLevels;
+                return _context.UserPermissionLevelAllocation.Include(x => x.PermissionLevel).Include(y => y.User).Where(z => z.StatusId == 1 && z.UserId==1).ToList();
             }
             else
             {
-                return _context.UserPermissionLevelAllocation.Include(x => x.PermissionLevel).Include(y => y.User).Where(z => z.StatusId == 1 && z.User.Username.Equals(Params.defUser)).ToList();
+                var permissionLevels = _context.UserPermissionLevelAllocation.Include(x => x.PermissionLevel).Include(y => y.User).Where(z => z.StatusId == 1 && z.UserId==user.UserId).ToList();
+                if (permissionLevels.Count > 0)
+                {
+                    return permissionLevels;
+                }
+                else
+                {
+                    return _context.UserPermissionLevelAllocation.Include(x => x.PermissionLevel).Include(y => y.User).Where(z => z.StatusId == 1 && z.UserId == 1).ToList();
+                }
             }
         }
 
