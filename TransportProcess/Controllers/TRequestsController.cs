@@ -27,7 +27,7 @@ namespace TransportProcess.Controllers
                 // which means you can't delete all TodoItems.
                 _context.TRequest.Add(new TRequest {
                     CreatedDateTime = DateTime.Now,
-                    CreatedUserId = 1,
+                    UserId = 1,
                     CustomPurpose = "test",
                     ModifiedDateTime = DateTime.Now,
                     ModifiedUserId =1,
@@ -38,7 +38,7 @@ namespace TransportProcess.Controllers
                     RequestedDate = DateTime.Now,
                     RequestPurposeId =1,
                     ReturnDateTime = DateTime.Now,
-                    StatusId =1=
+                    StatusId =1
                     });
                 _context.SaveChanges();
             }
