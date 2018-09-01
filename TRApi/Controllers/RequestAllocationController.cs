@@ -43,7 +43,7 @@ namespace TRApi.Controllers
         [HttpGet("api/RequestAllocation/GetMyAllocatedRequest/{userId}")]
         public List<AllocatedReqs> GetMyAllocatedRequest(int userId)
         {
-            return _context.AllocatedReqs.Where(x=>x.UserId == userId).ToList();
+            return _context.AllocatedReqs.Where(x=>x.UserId == userId).OrderByDescending(x=>x.Id).ToList();
         }
 
      

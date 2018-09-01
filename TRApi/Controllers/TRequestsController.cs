@@ -43,7 +43,7 @@ namespace TRApi.Controllers
                     RequestedDate = DateTime.Now,
                     RequestPurposeId = 1,
                     ReturnDateTime = DateTime.Now,
-                    StatusId = 1 
+                    StatusId = 3
                     });
                 _context.SaveChanges();
             }
